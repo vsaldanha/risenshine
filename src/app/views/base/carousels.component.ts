@@ -3,7 +3,7 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 
 @Component({
   templateUrl: 'carousels.component.html',   providers: [
-    { provide: CarouselConfig, useValue: { interval: 1500, noPause: true } }
+    { provide: CarouselConfig, useValue: { interval: 4500, noPause: true } }
   ]
 })
 export class CarouselsComponent {
