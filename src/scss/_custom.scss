@@ -1,0 +1,23 @@
+// Here you can add other styles
+.app-header .nav-item .nav-link > .img-avatar, .app-header .nav-item .avatar.nav-link > img {
+    height: 22px;
+    margin: 0 10px;
+}
+
+.app-header {
+    height: 70px;
+}
+
+.sidebar .nav {
+    padding-top: 60px;
+}
+
+.col-sm-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.carousel {
+    position: relative;
+    height: 200px;
+}
