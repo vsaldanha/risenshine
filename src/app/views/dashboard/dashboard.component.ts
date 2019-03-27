@@ -3,10 +3,16 @@ import { Router } from '@angular/router';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 
+import {DashboardService} from './dashboard.service';
+
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
+
+  constructor(public dashboardService: DashboardService){
+   
+  }
 
   radioModel: string = 'Month';
  
@@ -208,11 +214,24 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // generate random values for mainChart
+
+       // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));
       this.mainChartData3.push(65);
     }
+
+    this.dashboardService.getTrendingOrganisations().subscribe((data: {}) => {
+      console.log(data);
+    });
+
+    this.dashboardService.getTrendingAssociates().subscribe((data: {}) => {
+      console.log(data);
+    });
+
+    this.dashboardService.getOpenRequests().subscribe((data: {}) => {
+      console.log(data);
+    });
   }
 }
