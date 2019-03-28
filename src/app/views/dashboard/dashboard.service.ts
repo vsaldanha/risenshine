@@ -14,6 +14,8 @@ export class DashboardService {
   options: RequestOptions;
   headers: Headers;
 
+  base_url: String= "http://localhost:8090/rns/fse/";
+
   constructor(private _http: HttpClient){
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
@@ -22,15 +24,15 @@ export class DashboardService {
   } 
   
     getTrendingOrganisations(): Observable<any>{
-        return this._http.get("http://localhost:8091/rns/fse/getTrendingOrg").pipe(map(this.extractData));
+        return this._http.get(this.base_url+"getTrendingOrg").pipe(map(this.extractData));
     }
 
     getTrendingAssociates(): Observable<any>{
-      return this._http.get("http://localhost:8091/rns/fse/getTrendingVolunteer").pipe(map(this.extractData));
+      return this._http.get(this.base_url+"getTrendingVolunteer").pipe(map(this.extractData));
     }
 
     getOpenRequests(): Observable<any>{
-      return this._http.get("http://localhost:8091/rns/fse/getOpenRequests").pipe(map(this.extractData));
+      return this._http.get(this.base_url+"getOpenRequests").pipe(map(this.extractData));
     }
 
     extractData(res: Response) {

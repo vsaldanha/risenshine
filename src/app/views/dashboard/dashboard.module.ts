@@ -11,6 +11,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { DashboardComponent } from './dashboard.component';
 import { AlertsComponent } from '../notifications/alerts.component';
 
+import { AgGridModule} from "ag-grid-angular/main";
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
@@ -24,7 +25,10 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     LoginModule,
     RegisterModule,
     CommonModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    AgGridModule.withComponents(
+      [DashboardComponent]
+  )
   ],
   declarations: [ DashboardComponent, AlertsComponent]
 })
