@@ -6,6 +6,7 @@ import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { DashboardService } from './dashboard.service';
 import { ITrendingOrg } from '../model/ITrendingOrg';
 import { ITrendingAssociate } from '../model/ITrendingAssociate';
+import { ILatestEvents } from '../model/ILatestEvents';
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -34,6 +35,9 @@ export class DashboardComponent implements OnInit {
     { headerName: 'Hours spent', field: 'timePeriod',  cellStyle: { 'font-size': '15px' } }
   ];
 
+  // Event list
+  eventList = [];
+
   constructor(public dashboardService: DashboardService) {
     this.dashboardService.getTrendingOrganisations().subscribe((response: ITrendingOrg[]) => {
       console.log(response);
@@ -55,6 +59,11 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getTrendingAssociates().subscribe((response: ITrendingAssociate[]) => {
       console.log(response);
       this.rowDataDef = response;
+    });
+
+    this.dashboardService.getOpenRequests().subscribe((response: ILatestEvents[]) => {
+      console.log(response);
+      this.eventList = response;
     });
 
   }

@@ -29,7 +29,7 @@
   "dependencies": {
     "@angular/animations": "^7.2.6",
     "@angular/common": "^7.2.6",
-    "@angular/compiler": "^7.2.6",
+    "@angular/compiler": "^6.1.1",
     "@angular/core": "^7.2.6",
     "@angular/forms": "^7.2.6",
     "@angular/http": "^7.2.6",
@@ -40,6 +40,7 @@
     "@coreui/coreui": "^2.1.7",
     "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.2.0",
     "@coreui/icons": "0.3.0",
+    "ag-grid": "^18.1.2",
     "ag-grid-angular": "^20.2.0",
     "ag-grid-community": "^20.2.0",
     "bootstrap": "^4.3.1",
