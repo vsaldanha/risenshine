@@ -14,48 +14,43 @@
         </div>
         <div class="col-sm-6">
           <h5 class="card-title mb-0">Trending Associates</h5>
- 
+
 
           <div class="chart-wrapper" style="height:200px;margin-top:40px;">
-            <ag-grid-angular 
-           
-            class="ag-theme-balham"
-            [enableSorting]="true"
-            [enableFilter]="true"
-            [pagination]="true"
-            [paginationPageSize]="paginationPageSize"
-            [rowData]="rowDataDef" 
-            [columnDefs]="DefColumnDefs"
-            [rowSelection]="rowSelection"
-            >
-        </ag-grid-angular>
-   
+            <ag-grid-angular class="ag-theme-balham" [enableSorting]="true" [enableFilter]="true" 
+              [rowData]="rowDataDef" [columnDefs]="DefColumnDefs"
+              [rowSelection]="rowSelection">
+            </ag-grid-angular>
+
           </div>
-          
+
 
         </div>
-        
+
       </div>
       <!--/.row-->
     </div>
-    
-  <!--/.card-->
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <strong>Upcoming Events</strong>
-          <small>link</small>
-        </div>
-        <div class="card-body">
-          <alert type="success">
-            <div *ngFor="let event of eventList">
-              <strong><a href="#" class="alert-link">Institution Name: <span style="color: olivedrab;">{{event.schoolName}}, {{event.address}}</span> Event Type: <span style="color: olivedrab;">{{event.eventType}}</span> Date: <span style="color: olivedrab;">{{event.eventDate}}</span></a></strong>
-          
-            </div>
-          </alert>
-          <!-- <alert type="info">
+    <!--/.card-->
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Upcoming Events</strong>
+            <small>link</small>
+          </div>
+          <div class="card-body">
+           <table>
+              <tr *ngFor="let event of eventList">
+                <alert type="info">
+                  <td style="width:400px;"><strong><a href="#" class="alert-link">Institution Name: <span style="color: olivedrab;">{{event.schoolName}}, {{event.address}}</span></a></strong></td> 
+                  <td style="width:400px;"><strong><a href="#" class="alert-link">Event Type: <span style="color: olivedrab;">{{event.eventType}}</span></a></strong></td>
+                  <td style="width:400px;"><strong><a href="#" class="alert-link">Date: <span style="color: olivedrab;">{{event.eventDate}}</span></a></strong></td>
+                </alert>
+              </tr>
+            </table>
+              <!-- <alert type="info">
             <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not
             super important.
           </alert>
@@ -67,11 +62,11 @@
             <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting
             again.
           </alert> -->
-        </div>
+          </div>
 
+        </div>
       </div>
+      <!--/.col-->
     </div>
-    <!--/.col-->
+    <!--/.row-->
   </div>
-  <!--/.row-->
-</div>

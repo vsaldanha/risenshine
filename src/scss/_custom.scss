@@ -32,7 +32,11 @@ h4, .h4 {
 }
 
 .ag-root-wrapper-body.ag-layout-normal {
-    height: 240px;
+    height: 180px;
+}
+
+.ag-theme-balham .ag-root {
+    border: 3px solid rgb(4, 29, 46);
 }
 
 strong {

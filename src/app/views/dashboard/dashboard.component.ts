@@ -30,9 +30,9 @@ export class DashboardComponent implements OnInit {
   paginationPageSize = 5;
 
   DefColumnDefs = [
-    { headerName: 'User', field: 'volunteerName',  cellStyle: { 'font-size': '15px' } },
-    { headerName: 'Organization Name', field: 'org_name', cellStyle: { 'font-size': '15px' } },
-    { headerName: 'Hours spent', field: 'timePeriod',  cellStyle: { 'font-size': '15px' } }
+    { headerName: 'User', field: 'volunteerName',width: 200,  cellStyle: { 'font-size': '15px' } },
+    { headerName: 'Organization Name', field: 'org_name',width: 200, cellStyle: { 'font-size': '15px' } },
+    { headerName: 'Hours spent', field: 'timePeriod',width:135,  cellStyle: { 'font-size': '15px' } }
   ];
 
   // Event list

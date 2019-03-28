@@ -12,6 +12,20 @@ const routes: Routes = [
     data: {
       title: 'Dashboard'
     }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'Login'
+    }
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: {
+      title: 'Register'
+    }
   }
   
 ];
