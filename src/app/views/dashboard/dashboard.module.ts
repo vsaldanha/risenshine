@@ -4,8 +4,6 @@ import { FormsModule} from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import {LoginModule} from '../login/login.module';
-import {RegisterModule} from '../register/register.module';
 import { AlertModule } from 'ngx-bootstrap/alert';
 
 import { DashboardComponent } from './dashboard.component';
@@ -22,8 +20,6 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     ChartsModule,
     BsDropdownModule,
     ButtonsModule.forRoot(),
-    LoginModule,
-    RegisterModule,
     CommonModule,
     AlertModule.forRoot(),
     AgGridModule.withComponents(

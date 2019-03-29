@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
-
+import {LoginComponent} from './views/login/login.component';
+import {RegisterComponent} from './views/register/register.component';
+import {SchoolComponent} from './views/school/school.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 
@@ -28,12 +30,24 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
     path: '',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
     },
     children: [
+      {
+        path: 'school',
+        loadChildren: './views/school/school.module#SchoolModule'
+      },
       {
         path: 'base',
         loadChildren: './views/base/base.module#BaseModule'
@@ -69,6 +83,7 @@ export const routes: Routes = [
     ]
   },
   { path: '**', component: P404Component }
+  
 ];
 
 @NgModule({

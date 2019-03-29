@@ -43,3 +43,10 @@ strong {
     font-weight: bolder;
     color: white;
 }
+
+.row_request {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -350px;
+}

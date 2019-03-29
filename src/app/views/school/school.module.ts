@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
-import { LoginComponent } from '../login/login.component';
-import { LoginRoutingModule } from './login-routing.module';
+import {SchoolRoutingModule} from './school-routing.module';
+import { SchoolComponent } from './school.component';
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    LoginRoutingModule
+    SchoolRoutingModule
+
   ],
-  declarations: [ LoginComponent ]
+  declarations: [ SchoolComponent ]
 })
-export class LoginModule { }
+export class SchoolModule { }

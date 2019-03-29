@@ -5,6 +5,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import {LoginModule} from './views/login/login.module';
+import {RegisterModule} from './views/register/register.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -39,6 +41,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
@@ -53,13 +56,16 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    LoginModule,
+    RegisterModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
     P404Component,
-    P500Component
+    P500Component,
   ],
   providers: [{
     provide: LocationStrategy,
