@@ -23,33 +23,87 @@
                   </div>
                   <input type="date" name="eventDate" [(ngModel)]="eventDate" class="form-control" placeholder="Date" autocomplete="date" required>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group mb-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="text" name="classGrade" [(ngModel)]="classGrade" class="form-control" placeholder="Grade" autocomplete="grade" required>
+                <input #classGrade type="text" id ="classGrade" class="col-sm-6 form-control" style="width:50%"  name="fname" placeholder="Enter the Class Grade"  (keydown.space)="$event.preventDefault()">
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="text" name="subject" [(ngModel)]="subject" class="form-control" placeholder="Subject" autocomplete="subject" required>
+                <input #subject type="text" id ="subject" class="col-sm-6 form-control" style="width:50%"  name="fname" placeholder="Enter the Subject"  (keydown.space)="$event.preventDefault()">
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="text" name="timePeriod" [(ngModel)]="timePeriod" class="form-control" placeholder="Time duration" autocomplete="duration" required>
+                <input #timePeriod type="text" id ="timePeriod" class="col-sm-6 form-control" style="width:50%"  name="fname" placeholder="Enter the Time Duration"  (keydown.space)="$event.preventDefault()">
                 </div>
-
-                <button type="submit" class="btn btn-block btn-success">Create Request</button>
+                
+                <div class="card-footer p-4">
+                  <div class="row">
+                   <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <a class="text-success" (click)="add()">
+          <i class="material-icons">exposure_plus_1</i>
+        </a>
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Person Name</th>
+          <th class="text-center">Age</th>
+          <th class="text-center">Company Name</th>
+          <th class="text-center">Country</th>
+          <th class="text-center">City</th>
+          <th class="text-center">Sort</th>
+          <th class="text-center">Remove</th>
+        </tr>
+        <tr *ngFor="let person of personList; let id = index">
+          <td>
+            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{person.name}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.age}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'country', $event)" (blur)="updateList(id, 'country', $event)">{{person.country}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+          </td>
+          <td>
+            <span class="table-up">
+              <a class="indigo-text">
+                <i class="material-icons">exposure_plus_1</i>
+              </a>
+            </span>
+            <span class="table-down">
+              <a class="indigo-text">
+                <i class="material-icons">exposure_plus_1</i>
+              </a>
+            </span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+                    
+                    <button type="submit" class="btn btn-block btn-success">Create Request</button>
+                  </div>
+                   
+                </div>
               </form>
             </div>
-            <div class="card-footer p-4">
-              <div class="row">
-
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>

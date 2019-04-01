@@ -29,6 +29,11 @@ export class SchoolService {
     return this._http.post(this.base_url + "createOpenRequests",params,this.options).pipe(map(this.extractData));
   }
 
+//   addNewRequest(classGrade,subject,timePeriod)  {
+//     let params = JSON.stringify(classGrade);
+//     return this._http.post(this.base_url + "addNewRequest",params,this.options).pipe(map(this.extractData));
+// }
+
   extractData(res: Response) {
     let body = res;//.json();
     return body;

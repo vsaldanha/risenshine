@@ -31,7 +31,7 @@ export class DefaultLayoutComponent implements OnDestroy {
       (event: Event) => {
         if (event instanceof NavigationEnd) {
           console.log("LocalStorage ", localStorage.getItem('Role'));
-          if (localStorage.getItem('Role') === 'school') {
+          if (localStorage.getItem('role') === 'school') {
             this.schoolRole = true;
             console.log("role is school");
           }
