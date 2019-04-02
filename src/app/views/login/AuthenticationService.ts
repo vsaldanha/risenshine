@@ -18,21 +18,18 @@ export class AuthenticationService {
     
 
     login(username: string, password: string) : boolean {
-        console.log("in here!!!");
         this._loginService.getUserInfo(username,password).subscribe( data => {
             this.loginResponse = data;
             console.log("ROLE SHOULD BE: ", this.loginResponse);
             if (this.loginResponse.status == 200) {
                 this.role = this.extractData(this.loginResponse);
-                console.log("Role from response is:", this.role);
-            }
-            console.log("Role outside method:", this.role);
-            localStorage.setItem('userName', JSON.stringify(username));
-            localStorage.setItem('role', this.role);
-            if(this.role === "school"){
-            this.router.navigate(['/dashboard']);
-            return true;
-        }
+                localStorage.setItem('userName', JSON.stringify(username));
+                localStorage.setItem('role', this.role);
+                    if(this.role === "school"){
+                        this.router.navigate(['/dashboard']);
+                        }
+                return true;
+                }
         else{
             
             this.router.navigate(['/login']);
@@ -40,6 +37,7 @@ export class AuthenticationService {
         }
         }, error => {
             console.log("Oops !! Something went wrong");
+            return false
         });
        
         return false;

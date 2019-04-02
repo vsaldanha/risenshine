@@ -26,34 +26,37 @@ export class SchoolComponent implements OnInit {
  rowSelected = false;
   private rowSelection= "single";
   private totalUsers : number=0;
+  limit: any;
+  rowCounter: number = 0;
   iRequestDetails:IRequestDetails=new IRequestDetails;
   subRequestDetails:ISubRequestDetails[]=[];
 
   //SubRequest table
   editField: string;
-    personList: Array<any> = [
-    ];
 
-    awaitingPersonList: Array<any> = [
-      { id: '', name: '', age: '', companyName: '', country: '', city: '' }
+    requestList: Array<any> = [];
+
+    awaitingRequestList: Array<any> = [
+      { classGrade: '', subject: '', timePeriod: '' }
       
     ];
 
     updateList(id: number, property: string, event: any) {
       const editField = event.target.textContent;
-      this.personList[id][property] = editField;
+      this.requestList[id][property] = editField;
     }
 
     remove(id: any) {
-      this.awaitingPersonList.push(this.personList[id]);
-      this.personList.splice(id, 1);
+      this.requestList.splice(id, 1);
+      this.rowCounter--;
     }
 
     add() {
-      if (this.awaitingPersonList.length > 0) {
-        const person = this.awaitingPersonList[0];
-        this.personList.push(person);
-        this.awaitingPersonList.splice(0, 1);
+
+      if(this.rowCounter < 4 ){
+        const req=new ISubRequestDetails("","","");
+        this.requestList.push(req);
+        this.rowCounter++;
       }
     }
 
@@ -63,7 +66,8 @@ export class SchoolComponent implements OnInit {
   
 
   constructor(private schoolService:SchoolService) { 
-    
+    let req=new ISubRequestDetails("","","");
+    this.requestList.push(req);
   }
 
   DefColumnDefs = [
