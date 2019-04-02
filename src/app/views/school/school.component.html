@@ -8,64 +8,75 @@
               <div class="card-header p-2">
                 <h4>Create Request</h4>
               </div>
-              <form #requestForm="ngForm" (ngSubmit)="submitRequest(requestForm)">
+              <form [formGroup]="requestForm" (ngSubmit)="submitRequest(requestForm)">
                 <br>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" name="eventType" [(ngModel)]="eventType" class="form-control" placeholder="Request Type" autocomplete="requestType"
-                    required>
+                  <input type="text" name="eventType" formControlName="requestType" class="form-control"
+                    placeholder="Request Type" autocomplete="requestType" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="date" name="eventDate" [(ngModel)]="eventDate" class="form-control" placeholder="Date" autocomplete="date" required>
+                  <input type="date" name="eventDate" formControlName="requestDate" class="form-control"
+                    placeholder="Date" autocomplete="date" required>
                 </div>
-                
-                
-                <div class="card-footer p-4">
-                  <div class="row">
-                   <div id="table" class="table-editable">
-      <span class="table-add float-right mb-3 mr-2">
-        <a class="text-success">
-            <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="btn-primary" (click)="add()">Add New Row</button>
-        </a>
-      </span>
-      <table class="table table-bordered table-responsive-md table-striped text-center" style="width: 425px;">
-        <tr>
-          <th class="text-center">Grade</th>
-          <th class="text-center">Subject</th>
-          <th class="text-center">Duration</th>
-          <th class="text-center">Action</th>
-        </tr>
-        <tr *ngFor="let request of requestList; let id = index">
-          <td>
-            <span (keyup)="changeValue(id, 'classGrade', $event)" (blur)="updateList(id, 'classGrade', $event)" contenteditable="true">{{request.classGrade}}</span>
-          </td>
-          <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'subject', $event)" (blur)="updateList(id, 'subject', $event)">{{request.subject}}</span>
-          </td>
-          <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'timePeriod', $event)" (blur)="updateList(id, 'timePeriod', $event)">{{request.timePeriod}}</span>
-          </td>
-          <td>
-            <span class="table-remove">
-              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="btn-danger" (click)="remove(id)">Remove</button>
-            </span>
-          </td>
-        </tr>
-      </table>
-    </div>
-                    
-                    <button type="submit" class="btn btn-block btn-success">Create Request</button>
+
+                <div formArrayName="requestFormArray">
+
+                  <div class="card-footer p-4">
+                    <div class="row">
+                      <div id="table" class="table-editable">
+                        <span class="table-add float-right mb-3 mr-2">
+                          <a class="text-success">
+                            <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="btn-primary"
+                              (click)="add()">Add New Row</button>
+                          </a>
+                        </span>
+                        <table class="table table-bordered table-responsive-md table-striped text-center"
+                          style="width: 425px;">
+                          <tr>
+                         
+                            <th class="text-center" >Grade</th>
+                            <th class="text-center" >Subject</th>
+                            <th class="text-center" >Duration</th>
+                            <th class="text-center" >Action</th>
+                        
+                          </tr>
+                          <tr *ngFor="let request of requestForm.get('requestFormArray').controls; let i = index" [formGroupName]="i">
+                            
+                              <td>
+                                <input type="text" formControlName="classGrade" contenteditable="true" required>
+                              </td>
+                              <td>
+                                <input type="text" formControlName="subject" contenteditable="true" required>
+                              </td>
+                              <td>
+                                <input type="text" formControlName="timePeriod" contenteditable="true" required>
+                              </td>
+                              <td>
+                                <span class="table-remove">
+                                  <button type="button" mdbBtn color="danger" rounded="true" size="sm"
+                                    class="btn-danger" (click)="remove(i)">Remove</button>
+                                </span>
+                              </td>
+                            
+                          </tr>
+                        </table>
+                      </div>
+
+                      <button type="submit" class="btn btn-block btn-success">Create Request</button>
+                    </div>
+
                   </div>
-                   
                 </div>
+
               </form>
             </div>
-           
+
           </div>
         </div>
       </div>

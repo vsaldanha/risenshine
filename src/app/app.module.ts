@@ -46,6 +46,8 @@ import { HttpModule } from '@angular/http';
 import { EditableTableModule } from 'ng-editable-table/editable-table/editable-table.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCommonModule, MatRippleModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -68,7 +70,8 @@ import { MatCommonModule, MatRippleModule } from '@angular/material/core';
     HttpModule,
     BrowserAnimationsModule,
     MatCommonModule,
-    MatRippleModule
+    MatRippleModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
