@@ -44,6 +44,7 @@ export class SchoolComponent implements OnInit {
     updateList(id: number, property: string, event: any) {
       const editField = event.target.textContent;
       this.requestList[id][property] = editField;
+      console.log("RequestList: ", this.requestList[id]);
     }
 
     remove(id: any) {

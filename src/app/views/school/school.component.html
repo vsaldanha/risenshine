@@ -42,13 +42,13 @@
         </tr>
         <tr *ngFor="let request of requestList; let id = index">
           <td>
-            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{request.classGrade}}</span>
+            <span (keyup)="changeValue(id, 'classGrade', $event)" (blur)="updateList(id, 'classGrade', $event)" contenteditable="true">{{request.classGrade}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{request.subject}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'subject', $event)" (blur)="updateList(id, 'subject', $event)">{{request.subject}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{request.timePeriod}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'timePeriod', $event)" (blur)="updateList(id, 'timePeriod', $event)">{{request.timePeriod}}</span>
           </td>
           <td>
             <span class="table-remove">
