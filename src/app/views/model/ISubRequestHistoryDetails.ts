@@ -4,4 +4,5 @@ export class ISubRequestHistoryDetails {
 	classGrade: string;
 	subject: string;
 	timePeriod: number;
+	status: string;
 }

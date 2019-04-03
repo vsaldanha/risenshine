@@ -8,10 +8,13 @@
               <div class="card-header p-2">
                 <h4>Request History</h4>
               </div>
+              <button (click)="onBtnExport()">Export to Excel</button>
               <div class="chart-wrapper" style="height:200px;margin-top:40px;">
-                <ag-grid-angular class="ag-theme-balham" [enableSorting]="true" [enableFilter]="true" 
+                <ag-grid-angular #agGrid class="ag-theme-balham" id="myGrid" [enableSorting]="true" [enableFilter]="true" 
                   [rowData]="rowDataDef" [columnDefs]="DefColumnDefs"
-                  [rowSelection]="rowSelection">
+                  [rowSelection]="rowSelection" [pagination]="true"  [showToolPanel]="true"
+                  [rowSelection]="rowSelection"
+                  [pinnedTopRowData]="pinnedTopRowData" (gridReady)="onGridReady($event)">
                 </ag-grid-angular>
     
               </div>
