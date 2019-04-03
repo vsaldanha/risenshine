@@ -37,8 +37,8 @@ interface NavAttributes {
       icon: 'icon-puzzle'
     },
     {
-      name: 'Reuqest History',
-      url: '/buttons',
+      name: 'Request History',
+      url: '/requestHistory',
       icon: 'icon-cursor'
     },
     {

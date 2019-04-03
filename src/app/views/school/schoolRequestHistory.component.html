@@ -1,0 +1,25 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row_request_s">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4s">
+            <div class="card-body p-4s">
+              <div class="card-header p-2">
+                <h4>Request History</h4>
+              </div>
+              <div class="chart-wrapper" style="height:200px;margin-top:40px;">
+                <ag-grid-angular class="ag-theme-balham" [enableSorting]="true" [enableFilter]="true" 
+                  [rowData]="rowDataDef" [columnDefs]="DefColumnDefs"
+                  [rowSelection]="rowSelection">
+                </ag-grid-angular>
+    
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

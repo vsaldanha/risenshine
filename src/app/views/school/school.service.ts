@@ -28,6 +28,11 @@ export class SchoolService {
     let params = JSON.stringify(requestDetails);
     return this._http.post(this.base_url + "createOpenRequests",params,this.options).pipe(map(this.extractData));
   }
+  
+  getAllRequests(): any{
+    return this._http.get(this.base_url+"getAllSubRequestDetails").pipe(map(this.extractData));
+  }
+
 
 //   addNewRequest(classGrade,subject,timePeriod)  {
 //     let params = JSON.stringify(classGrade);
@@ -35,7 +40,7 @@ export class SchoolService {
 // }
 
   extractData(res: Response) {
-    let body = res;//.json();
+    let body = res.json();
     return body;
   }
 

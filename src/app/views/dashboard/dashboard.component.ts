@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
     });
 
     this.dashboardService.getTrendingAssociates().subscribe((response: ITrendingAssociate[]) => {
-      console.log(response);
+      console.log("Trending Associates: ", response);
       this.rowDataDef = response;
     });
 

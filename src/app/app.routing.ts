@@ -49,6 +49,10 @@ export const routes: Routes = [
         loadChildren: './views/school/school.module#SchoolModule'
       },
       {
+        path: 'requestHistory',
+        loadChildren: './views/school/schoolRequestHistory.module#SchoolRequestHistoryModule'
+      },
+      {
         path: 'base',
         loadChildren: './views/base/base.module#BaseModule'
       },
