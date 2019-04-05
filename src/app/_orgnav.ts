@@ -14,13 +14,13 @@ interface NavAttributes {
     variant: string;
   }
   
-  export interface SchoolNavData {
+  export interface OrgNavData {
     name?: string;
     url?: string;
     icon?: string;
     badge?: NavBadge;
     title?: boolean;
-    children?: SchoolNavData[];
+    children?: OrgNavData[];
     variant?: string;
     attributes?: NavAttributes;
     divider?: boolean;
@@ -29,17 +29,23 @@ interface NavAttributes {
     wrapper?: NavWrapper;
   }
   
-  export const schoolNavItems: SchoolNavData[] = [
+  export const orgNavItems: OrgNavData[] = [
   
     {
-      name: 'Create Request',
+      name: 'Confirm Request',
       url: '/school',
       icon: 'icon-puzzle'
     },
     {
-      name: 'Request History',
+      name: 'Volunteers',
       url: '/requestHistory',
       icon: 'icon-cursor'
-    }
+    },
+    {
+        name: 'Event History',
+        url: '/requestHistory',
+        icon: 'icon-cursor'
+      },
+
   ];
   

@@ -2,6 +2,7 @@ import { Component, OnDestroy, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { schoolNavItems } from '../../_schoolnav';
 import { navItems } from '../../_nav';
+import { orgNavItems } from '../../_orgnav';
 import { Router, Event, NavigationEnd, GuardsCheckStart } from '@angular/router';
 
 
@@ -13,10 +14,12 @@ export class DefaultLayoutComponent implements OnDestroy {
   public schoolNavItems = schoolNavItems;
   public username: String;
   public navItems = navItems;
+  public orgNavItems = orgNavItems;
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement;
   public schoolRole: boolean = false;
+  public orgRole: boolean = false;
   constructor(private router: Router, @Inject(DOCUMENT) _document?: any) {
 
     this.changes = new MutationObserver((mutations) => {
@@ -34,6 +37,9 @@ export class DefaultLayoutComponent implements OnDestroy {
           if (localStorage.getItem('role') === 'school') {
             this.schoolRole = true;
             console.log("role is school");
+          }
+          else if(localStorage.getItem('role') === 'organization'){
+            this.orgRole = true;
           }
           else
           this.schoolRole = false;

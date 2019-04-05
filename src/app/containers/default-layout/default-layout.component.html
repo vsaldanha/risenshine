@@ -23,9 +23,9 @@
       <app-sidebar-minimizer></app-sidebar-minimizer>
     </app-sidebar>
   </div>
-  <div *ngIf="schoolRole === false">
+  <div *ngIf="orgRole === true">
     <app-sidebar [fixed]="true" [display]="'lg'">
-      <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="sidebarMinimized"></app-sidebar-nav>
+      <app-sidebar-nav [navItems]="orgNavItems" [perfectScrollbar] [disabled]="sidebarMinimized"></app-sidebar-nav>
       <app-sidebar-minimizer></app-sidebar-minimizer>
     </app-sidebar>
   </div>

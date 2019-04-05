@@ -25,9 +25,7 @@ export class AuthenticationService {
                 this.role = this.extractData(this.loginResponse);
                 localStorage.setItem('userName', JSON.stringify(username));
                 localStorage.setItem('role', this.role);
-                    if(this.role === "school"){
-                        this.router.navigate(['/dashboard']);
-                        }
+                this.router.navigate(['/dashboard']);            
                 return true;
                 }
         else{
