@@ -33,7 +33,7 @@ interface NavAttributes {
   
     {
       name: 'Confirm Request',
-      url: '/school',
+      url: '/confirmRequest',
       icon: 'icon-puzzle'
     },
     {

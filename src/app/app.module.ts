@@ -8,6 +8,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import {LoginModule} from './views/login/login.module';
 import {RegisterModule} from './views/register/register.module';
 
+import {ConfirmRequestComponent} from './views/organization/confirmRequest.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -48,8 +49,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -77,16 +76,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     ...APP_CONTAINERS,
     P404Component,
-    P500Component,
+    P500Component    
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: HashLocationStrategy,
   }],
+  
   bootstrap: [ AppComponent ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ]
+  
 })
 export class AppModule { }

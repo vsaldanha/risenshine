@@ -1,0 +1,82 @@
+<ng-template #content let-modal>
+  <div class="modal-content">
+
+
+    <app-modal></app-modal>
+  </div>
+</ng-template>
+<div class="main-content">
+  <div class="card">
+    <div class="card-header card-header-warning">
+      <h4 class="card-title">Confirm Open Event</h4>
+    </div>
+    <div class="card-body table-responsive">
+      <ag-grid-angular style="width: 100%; height: 400px;" class="ag-theme-balham" [enableSorting]="true"
+        [enableFilter]="true" [pagination]="true" [paginationPageSize]="paginationPageSize" [rowData]="rowDataDef"
+        [columnDefs]="ColumnDefs" [rowSelection]="rowSelection" [suppressCellSelection]="true" [enableColResize]="true"
+        (rowClicked)="open(content)">
+      </ag-grid-angular>
+    </div>
+
+    <ng-template #content let-modal>
+      <div class="modal-body">
+        <div class="card mx-4">
+          <div class="card-body p-4">
+            <div class="card-header p-2">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              <h4>Accept Request</h4>
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="submitRequest(registerForm)">
+              <br>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span style="width:100px" class="input-group-text">School</span>
+                </div>
+                <input type="text" class="form-control" formControlName="username"
+                   required>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span style="width:100px" class="input-group-text">Event Type</span>
+                </div>
+                <input type="text" class="form-control" formControlName="email" 
+                  required>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span style="width:100px" class="input-group-text">Classes</span>
+                </div>
+                <input type="text" class="form-control" formControlName="password"
+                    required>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span style="width:100px" class="input-group-text">Event Date</span>
+                </div>
+                <input type="text" class="form-control" formControlName="password"
+                   required>
+              </div>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span style="width:100px" class="input-group-text">Status</span>
+                  </div>
+                  <select (ngModelChange)="changeAction($event)" class="form-control" formControlName="userType" placeholder="User Type">
+                      <option *ngFor="let state of states" [ngValue]="state">
+                        {{state}}
+                      </option>
+                    </select>
+                </div>
+              <button type="button" class="btn btn-block btn-success">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <!--<app-modal></app-modal> -->
+  </div>
+
+
+</div>

@@ -6,6 +6,7 @@ import { DefaultLayoutComponent } from './containers';
 import {LoginComponent} from './views/login/login.component';
 import {RegisterComponent} from './views/register/register.component';
 import {SchoolComponent} from './views/school/school.component';
+import {ConfirmRequestComponent} from './views/organization/confirmRequest.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 
@@ -51,6 +52,10 @@ export const routes: Routes = [
       {
         path: 'requestHistory',
         loadChildren: './views/school/schoolRequestHistory.module#SchoolRequestHistoryModule'
+      },
+      {
+        path: 'confirmRequest',
+        loadChildren: './views/organization/organization.module#OrganizationModule'
       },
       {
         path: 'base',
