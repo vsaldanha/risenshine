@@ -29,7 +29,9 @@ export class ConfirmRequestComponent implements OnInit {
     ColumnDefs = [
         { headerName: 'School', field: 'schoolName' },
         { headerName: 'Event Type', field: 'eventType' },
-        { headerName: 'Classes', field: 'classes' },
+        { headerName: 'Grade', field: 'classGrade' },
+        { headerName: 'Subject', field: 'subject' },
+        { headerName: 'Duration', field: 'timePeriod' },
         { headerName: 'Status', field: 'status', editable: true },
         { headerName: 'Event Date', field: 'eventDate' },
     ];

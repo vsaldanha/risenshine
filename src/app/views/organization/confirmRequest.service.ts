@@ -21,7 +21,7 @@ export class ConfirmRequestService {
   }
 
         getOpenRequests()  {
-        return this._http.get("http://localhost:8091/rns/fse/getOpenRequests")
+        return this._http.get("http://localhost:8091/rns/fse/FetchAllOpenSubRequests")
         .pipe(map(this.extractData));
     }
 
