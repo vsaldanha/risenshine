@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit{
 
       this.loading = true;
       this.loading = this.authenticationService.login(this.f.username.value, this.f.password.value);
-      if(! this.loading){
-        this.loginForm.reset();
+       if(this.loading===false){
+         this.loginForm.reset();
       }
   }
 }

@@ -35,6 +35,7 @@ export class AuthenticationService {
         }
         }, error => {
             console.log("Oops !! Something went wrong");
+            this.router.navigate(['/login']);
             return false
         });
        
