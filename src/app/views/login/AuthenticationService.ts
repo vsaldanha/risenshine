@@ -46,8 +46,7 @@ export class AuthenticationService {
         console.log("Logging out");
         // remove user from local storage to log user out
         localStorage.removeItem('Role');
-        localStorage.removeItem('SchoolA');
-        localStorage.removeItem('AdminUser');
+        localStorage.removeItem('userName');
     }
 
     public extractData(res: Response) {

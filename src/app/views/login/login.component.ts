@@ -21,10 +21,13 @@ export class LoginComponent implements OnInit{
       private router: Router,
       private authenticationService: AuthenticationService,
       private alertService: AlertService) {
+      
         }
 
   ngOnInit() {
     this.loading = false;
+    localStorage.removeItem('Role');
+    localStorage.removeItem('userName');
       this.loginForm = this.formBuilder.group({
           username: ['', Validators.required],
           password: ['', Validators.required]

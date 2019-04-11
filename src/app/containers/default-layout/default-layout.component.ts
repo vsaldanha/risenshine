@@ -20,6 +20,7 @@ export class DefaultLayoutComponent implements OnDestroy {
   public element: HTMLElement;
   public schoolRole: boolean = false;
   public orgRole: boolean = false;
+  public noRole: boolean = false;
   constructor(private router: Router, @Inject(DOCUMENT) _document?: any) {
 
     this.changes = new MutationObserver((mutations) => {
@@ -30,26 +31,26 @@ export class DefaultLayoutComponent implements OnDestroy {
       attributes: true,
       attributeFilter: ['class']
     });
-    this.router.events.subscribe(
-      (event: Event) => {
-        if (event instanceof NavigationEnd) {
-          console.log("LocalStorage ", localStorage.getItem('Role'));
-          if (localStorage.getItem('role') === 'school') {
-            this.schoolRole = true;
-            console.log("role is school");
-          }
-          else if(localStorage.getItem('role') === 'organization'){
-            this.orgRole = true;
-          }
-          else
-          this.schoolRole = false;
-          console.log("Next point");
-        }
-      });
+
+       
+         
   }
+     
+  
 
   ngOnInit() {
 
+    console.log("LocalStorage ", localStorage.getItem('Role'));
+    if (localStorage.getItem('role') === 'school') {
+      this.schoolRole = true;
+      console.log("role is school");
+    }
+    else if(localStorage.getItem('role') === 'organization'){
+      this.orgRole = true;
+    }
+    else
+    this.noRole = true;
+    console.log("Next point");
     
   }
 
