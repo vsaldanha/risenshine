@@ -21,7 +21,7 @@ export class LoginService {
     } 
 
     getUserInfo(userName: String, password: String): Observable<any>{
-        console.log(userName);
+        //console.log(userName);
         return this._http.get("http://localhost:8091/rns/fse/getUserInfo?param1="+userName+"&param2="+password)
         .pipe(map(this.extractData));
     }

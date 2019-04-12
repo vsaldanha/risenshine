@@ -26,7 +26,8 @@ export class RegisterService {
 
   submitRequest(registerDetails:IRegisterDetails): Observable<any> {
     let params = JSON.stringify(registerDetails);
-    return this.http.post(this.base_url + "registerUser",params, this.options).pipe(map(this.extractData));
+    return this.http.post(this.base_url + "registerUser",params, this.options)
+    .pipe(map(this.extractData));
   }
 
 
@@ -36,21 +37,12 @@ export class RegisterService {
 // }
 
   extractData(res: Response) {
-    let body = res.json();
+    let body = res;//json();
     return body;
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
+  handleErrorObservable (error: Response | any) {
+    console.error(error.message || error);
+    return Observable.throw(error || "Oops !! Something went wrong");
+  } 
 }

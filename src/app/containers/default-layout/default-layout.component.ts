@@ -40,7 +40,7 @@ export class DefaultLayoutComponent implements OnDestroy {
 
   ngOnInit() {
 
-    console.log("LocalStorage ", localStorage.getItem('Role'));
+    console.log("LocalStorage ", localStorage.getItem('role'));
     if (localStorage.getItem('role') === 'school') {
       this.schoolRole = true;
       console.log("role is school");
@@ -50,7 +50,6 @@ export class DefaultLayoutComponent implements OnDestroy {
     }
     else
     this.noRole = true;
-    console.log("Next point");
     
   }
 

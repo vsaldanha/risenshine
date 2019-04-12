@@ -14,6 +14,7 @@ export class RegisterComponent {
   public ifVolunteer: boolean = false;
   types: Array<string> = ['School', 'Organization', 'Volunteer'];
   iRegisterDetails: IRegisterDetails;
+  registerResponse: Response
   
 
   constructor(private router: Router, private formBuilder: FormBuilder, private registerService: RegisterService) { }
@@ -51,8 +52,11 @@ export class RegisterComponent {
     this.iRegisterDetails.empId = this.registerForm.get('empId').value;
 
     this.registerService.submitRequest(this.iRegisterDetails).subscribe(response => {
+      this.registerResponse = response;
       console.log(response.status);
+      if(this.registerResponse.status == 200){
       this.router.navigate(['/login']);
+      }
     }, error => {
       console.log("Oops !! Something went wrong");
     });

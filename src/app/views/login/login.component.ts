@@ -11,7 +11,7 @@ import { AuthenticationService } from './AuthenticationService';
 })
 export class LoginComponent implements OnInit{ 
   loginForm: FormGroup;
-  loading = false;
+  loading: boolean;
   submitted = false;
   returnUrl: string;
 
@@ -28,10 +28,11 @@ export class LoginComponent implements OnInit{
     this.loading = false;
     localStorage.removeItem('Role');
     localStorage.removeItem('userName');
-      this.loginForm = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
           username: ['', Validators.required],
           password: ['', Validators.required]
       });
+
     // reset login status
       this.authenticationService.logout();
 
@@ -54,10 +55,11 @@ export class LoginComponent implements OnInit{
           return;
       }
 
-      this.loading = true;
       this.loading = this.authenticationService.login(this.f.username.value, this.f.password.value);
-       if(this.loading===false){
-         this.loginForm.reset();
-      }
+      
+      //   if(this.loading===false){
+      //    console.log("unwanted console***")
+      //    this.loginForm.reset();
+      // }
   }
 }
